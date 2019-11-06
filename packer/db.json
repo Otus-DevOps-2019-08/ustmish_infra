@@ -1,0 +1,33 @@
+{
+    "variables": {
+      "project_id":"",
+      "image_family":"",
+      "machine_type":"f1-micro"
+    },
+    "builders": [
+        {
+            "type": "googlecompute",
+            "project_id": "{{user `project_id`}}",
+            "image_name": "reddit-db-base-{{timestamp}}",
+            "image_family": "{{user `mage_family`}}",
+            "source_image_family": "ubuntu-1604-lts",
+            "zone": "europe-west1-b",
+            "ssh_username": "ustmish",
+            "machine_type": "{{user `machine_type`}}",
+	    "network":"default",
+	    "tags":"puma-server2",
+ 	    "image_description":"insatnce for mongodb",
+	    "disk_type":"pd-ssd",
+	    "disk_size":"15"
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "scripts/install_mongodb.sh",
+            "execute_command": "sudo {{.Path}}"
+        }
+    ]
+	
+}
+
