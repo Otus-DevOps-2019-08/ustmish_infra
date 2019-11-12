@@ -66,8 +66,8 @@ ansible-lint *
 echo checking packer
 cd $packerdir
 
-packer validate -var-file=./variables.json app.json
-packer validate -var-file=./variables.json db.json
+packer validate -var-file=variables.json app.json
+packer validate -var-file=variables.json db.json
 
 
 
