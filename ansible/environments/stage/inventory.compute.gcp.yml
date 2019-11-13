@@ -1,0 +1,10 @@
+plugin: gcp_compute             # name the plugin you want to use (use `ansible-doc -t inventory -l` to list available plugins)
+projects:
+  - infra-253818            # Id of your gcp project
+regions: 
+  - europe-west2-b                        # regions from your project you want to fetch inventory from (you can also use zones instead of regions if you target one or several specific zones)        
+  
+filters: []
+auth_kind: serviceaccount       # gcp authentication kind. with service account you should provide the service account json key file to authenticate
+service_account_file: infra-253818-327a639b7e73.json   # Service account json keyfile
+
